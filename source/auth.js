@@ -1,5 +1,5 @@
 const jwt = require("jsonwebtoken")
-
+require("dotenv").config()
 function authenticateJWT(req, res, next){
     console.log(req)
     const authHeader = req.headers.authorization
@@ -7,7 +7,7 @@ function authenticateJWT(req, res, next){
     if(authHeader){
         const token = authHeader.split(" ")[1] //throws away the bearer word
         
-        jwt.verify(token, "ilovetacos", (err, user) => {
+        jwt.verify(token, process.env.DB_JWT_SECRET, (err, user) => {
             if(err){
                 res.sendStatus(403)
             }

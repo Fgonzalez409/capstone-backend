@@ -1,20 +1,19 @@
 const jwt = require("jsonwebtoken")
 const bcrypt = require("bcrypt")
-const {users} = require("../../mockdata")
+const pool = require('../sql/connection')
 
 const signup = async (req, res) => {
-    console.log("Hello world");
-    const { email, password } = req.body;
+    const { email, password, first_name } = req.body;
   
     const hashedPassword = await bcrypt.hash(password, 8);
   
-    users.push({
-      email,
-      password: hashedPassword,
-    });
-  
-    res.json(users.at(-1));
-  };
+    pool.query(`INSERT INTO ?? (??, ??, ??)   VALUES (?, ?, ?)`,
+     ["users","email", "password", "first_name", 
+     email, hashedPassword, first_name], 
+     (err, rows, fields) => {
+      res.json("user created")  
+    })
+    };
 
 module.exports = {
     signup

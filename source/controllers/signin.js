@@ -1,22 +1,30 @@
 const jwt = require("jsonwebtoken")
 const bcrypt = require("bcrypt")
-const {users} = require("../../mockdata")
+const pool = require("../sql/connection")
 
-const signin = async(req,res) => {
+require("dotenv").config()
+
+
+const signin = (req,res) => {
+    console.log("helloworld")
     const {email, password} = req.body
-    const foundUser = users.find((user) => user.email === email )
 
-    const hashedPassword = await bcrypt.compare(password, foundUser.password)
+    pool.query(`SELECT * FROM users WHERE email = ?`, 
+    [email],
+    async (err,user, fields) => {
+        console.log(err,user)
+        const hashedPassword = await bcrypt.compare(password, user[0].password)
 
-    if(hashedPassword){
-        const token = jwt.sign(foundUser, 'ilovetacos')    
-        res.json({token})
-    }
-    else {
-        res.json("invalid credentials")
-    }
+        if(hashedPassword){
+            const token = jwt.sign(user[0], process.env.DB_JWT_SECRET)    
+            console.log(token)
+            res.json({token})
+        }
+        else {
+            res.json("invalid credentials")
+        }
+    })
 }
-
 module.exports = {
     signin
 }
