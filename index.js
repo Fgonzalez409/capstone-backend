@@ -5,6 +5,9 @@ const express =  require('express')
 const users = require("./source/routes/users")
 const signin = require("./source/routes/signin")
 const signup = require("./source/routes/signup")
+const SQLusers = require("./source/routes/SQLusers")
+
+
 const app = express()
 
 //middleware
@@ -16,6 +19,7 @@ const PORT = process.env.PORT || 8080
 app.use("/", users)
 app.use("/", signin)
 app.use("/", signup)
+app.use("/", authenticateJWT, SQLusers)
 
 
 app.get("/", (req,res) => {
