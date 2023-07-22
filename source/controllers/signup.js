@@ -3,13 +3,13 @@ const bcrypt = require("bcrypt")
 const pool = require('../sql/connection')
 
 const signup = async (req, res) => {
-    const { email, password, first_name } = req.body;
+    const { first_name, email, password} = req.body;
   
     const hashedPassword = await bcrypt.hash(password, 8);
   
     pool.query(`INSERT INTO ?? (??, ??, ??)   VALUES (?, ?, ?)`,
-     ["users","email", "password", "first_name", 
-     email, hashedPassword, first_name], 
+     ["users","first_name","email", "password" , 
+     first_name, email, hashedPassword ], 
      (err, rows, fields) => {
       res.json("user created")  
     })
