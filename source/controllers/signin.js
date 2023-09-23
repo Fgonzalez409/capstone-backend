@@ -11,6 +11,7 @@ const signin = (req,res) => {
     pool.query(`SELECT * FROM users WHERE email = ?`, 
     [email],
     async (err,user, fields) => {
+        
         const hashedPassword = await bcrypt.compare(password, user[0].password)
 
         if(hashedPassword){
