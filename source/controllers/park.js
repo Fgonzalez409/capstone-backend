@@ -3,7 +3,8 @@ const pool = require("../sql/connection")
 
 const park = (req,res) => {
     const{park_id} = req.body
-    const {user_id} = req.user
+    console.log(req.user)
+    const {id: user_id} = req.user
     pool.query(`INSERT INTO visitedParks ( park_id, user_id) VALUES ( ?, ?)`, 
     [park_id, user_id],
     (err, rows, fields) => {
