@@ -5,17 +5,19 @@ const express =  require('express')
 //routes
 const cors = require("cors")
 const app = express()
+const bodyParser = require("body-parser")
 const users = require("./source/routes/users")
 const signin = require("./source/routes/signin")
 const signup = require("./source/routes/signup")
 const SQLusers = require("./source/routes/SQLusers")
-
+const park = require("./source/routes/park")
 
 //middleware
 const authenticateJWT = require("./source/auth")
 
 app.use(express.json())
 app.use(cors())
+app.use(bodyParser.json())
 
 app.use(function (req, res, next) {
     // Website you wish to allow to connect
@@ -23,7 +25,7 @@ app.use(function (req, res, next) {
 
 
 //******************************************************************************************************************************************************* */
-    res.setHeader("Access-Control-Allow-Origin", "https://mellifluous-sfogliatella-b5b761.netlify.app");
+    res.setHeader("Access-Control-Allow-Origin", "http://127.0.0.1:5173");
 //*****************************************************************************************************************************************************
 
     // res.setHeader(
@@ -53,6 +55,7 @@ app.use("/", users)
 // app.use("/", authenticateJWT, SQLusers)
 app.use("/", signin)
 app.use("/", signup)
+app.use("/", park)
 
 
 

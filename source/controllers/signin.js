@@ -7,7 +7,7 @@ require("dotenv").config()
 
 const signin = (req,res) => {
     const {email, password} = req.body
-
+    // const userID = req.user.id
     pool.query(`SELECT * FROM users WHERE email = ?`, 
     [email],
     async (err,user, fields) => {
