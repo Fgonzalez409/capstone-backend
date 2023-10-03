@@ -1,7 +1,7 @@
 const express = require("express")
 const router = express.Router()
-const usersControllers = require("../controllers/users")
+const getParksControllers = require("../controllers/getParks")
 
-router.get("/park", usersControllers.list )
+router.get("/getParks", usersControllers.list )
 
 module.exports = router
