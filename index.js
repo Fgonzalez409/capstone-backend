@@ -9,9 +9,9 @@ const bodyParser = require("body-parser")
 const users = require("./source/routes/users")
 const signin = require("./source/routes/signin")
 const signup = require("./source/routes/signup")
-const SQLusers = require("./source/routes/SQLusers")
+// const SQLusers = require("./source/routes/SQLusers")
 const park = require("./source/routes/park")
-const getParks = require("./source/routes/getParks")
+const getSavedParks = require("./source/routes/getSavedParks")
 
 
 //middleware
@@ -27,7 +27,7 @@ app.use(function (req, res, next) {
 
 
 //******************************************************************************************************************************************************* */
-    res.setHeader("Access-Control-Allow-Origin", "http://127.0.0.1:5173/");
+    res.setHeader("Access-Control-Allow-Origin", "http://127.0.0.1:5173");
 //*****************************************************************************************************************************************************
 
     // res.setHeader(
@@ -58,7 +58,7 @@ app.use("/", users)
 app.use("/", signin)
 app.use("/", signup)
 app.use("/", park)
-app.use("/", getParks)
+app.use("/", getSavedParks)
 
 
 
