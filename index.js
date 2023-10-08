@@ -27,7 +27,7 @@ app.use(function (req, res, next) {
 
 
 //******************************************************************************************************************************************************* */
-    res.setHeader("Access-Control-Allow-Origin", "https://capstone-backend-blush.vercel.app");
+    // res.setHeader("Access-Control-Allow-Origin", "https://capstone-backend-blush.vercel.app");
 //*****************************************************************************************************************************************************
 
     // res.setHeader(
