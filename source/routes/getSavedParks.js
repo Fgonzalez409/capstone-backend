@@ -1,13 +1,13 @@
 const express = require("express")
 const router = express.Router()
-const getSavedParksControllers = require("../controllers/getSavedParks")
+const getParksControllers = require("../controllers/getParks")
 const {authenticateJWT} = require("../auth")
 
-router.get("/getSavedParks", authenticateJWT, async(req, res)=> {
+router.get("/getParks", authenticateJWT, async(req, res)=> {
     const userID = req.user.id
     console.log(userID)
     try {
-        const parks = await getSavedParksControllers.list(userID)
+        const parks = await getParksControllers.list(userID)
         res.json(parks)
     } catch {
         console.error("error retrieving park", error)
