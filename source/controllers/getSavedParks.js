@@ -2,12 +2,12 @@ const pool = require("../sql/connection")
 
 
 
-const list = (userID) => {
+const getSavedParks = () => {
 
     return new Promise((resolve, reject) => {
         const query = "SELECT * FROM visitedParks where user_id = ?"
 
-        pool.query(query,[userID], (err, results) => {
+        pool.query(query,[user_id], (err, results) => {
             if(err){
                 console.error("Error retrieving park", err)
                 reject(err)
@@ -20,5 +20,5 @@ const list = (userID) => {
 }
 
 module.exports = {
-    list
+    getSavedParks
 }

@@ -1,6 +1,6 @@
 const pool = require("../sql/connection")
 
-
+//save park to DB
 const park = (req,res) => {
     const{parkCode} = req.body
     console.log(req.user)
