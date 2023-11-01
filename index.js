@@ -27,7 +27,7 @@ app.use(function (req, res, next) {
 
 
 //******************************************************************************************************************************************************* */
-    res.setHeader("Access-Control-Allow-Origin", "https://mellifluous-sfogliatella-b5b761.netlify.app/signin");
+    res.setHeader("Access-Control-Allow-Origin", "https://mellifluous-sfogliatella-b5b761.netlify.app/");
 //*****************************************************************************************************************************************************
   
     // Request methods you wish to allow
