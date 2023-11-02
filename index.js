@@ -27,7 +27,7 @@ app.use(function (req, res, next) {
 
 
 //******************************************************************************************************************************************************* */
-    res.setHeader("Access-Control-Allow-Origin", "https://capstone-backend-blush.vercel.app/");
+    res.setHeader("Access-Control-Allow-Origin", "https://http://127.0.0.1:5173/signin");
 //*****************************************************************************************************************************************************
   
     // Request methods you wish to allow
