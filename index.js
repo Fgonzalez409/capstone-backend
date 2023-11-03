@@ -18,7 +18,7 @@ const getSavedParks = require("./source/routes/getSavedParks")
 const authenticateJWT = require("./source/auth")
 
 app.use(express.json())
-app.use(cors({origin:"*"}))
+app.use(cors({origin:"https://mellifluous-sfogliatella-b5b761.netlify.app"}))
 app.use(bodyParser.json())
 
 app.use(function (req, res, next) {
@@ -27,7 +27,7 @@ app.use(function (req, res, next) {
 
 
 //******************************************************************************************************************************************************* */
-    res.setHeader("Access-Control-Allow-Origin", "*");
+    res.setHeader("Access-Control-Allow-Origin", "https://mellifluous-sfogliatella-b5b761.netlify.app");
 //*****************************************************************************************************************************************************
   
     // Request methods you wish to allow
