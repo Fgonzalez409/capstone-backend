@@ -2,7 +2,7 @@ const pool = require("../sql/connection")
 
 
 
-const getSavedParks = () => {
+const getSavedParks = (req,res) => {
     const userID = req.user.id
 
     return new Promise((resolve, reject) => {
