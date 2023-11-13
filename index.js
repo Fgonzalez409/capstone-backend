@@ -12,6 +12,7 @@ const signup = require("./source/routes/signup")
 // const SQLusers = require("./source/routes/SQLusers")
 const park = require("./source/routes/park")
 const getSavedParks = require("./source/routes/getSavedParks")
+const comments = require("./source/routes/comments")
 
 
 //middleware
@@ -54,6 +55,7 @@ app.use("/", signin)
 app.use("/", signup)
 app.use("/", park)
 app.use("/", getSavedParks)
+app.use("/", comments)
 
 
 
